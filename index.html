@@ -52,7 +52,7 @@
   $(document).ready(function(){
     $( ".qr-code" ).each(function( index ) {
       console.log( index + ": " + $( this ).text() );
-      $(this).qrcode($(this).data('url'));
+      $(this).qrcode(window.location.origin + $(this).data('url'));
     });
   });
 </script>

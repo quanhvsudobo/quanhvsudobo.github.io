@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR Js Demo by QuanHV</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js" integrity="sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style type="text/css">
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .row {
+      border: 1px solid #000;
+    }
+
+    .col-4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Demo AR-js</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        First Demo: Video play on my own pattern <br>
+        Sử dụng camera quét mã QR trên điện thoại -> Mở link và quét bức ảnh -> xem kết quả nhé
+      </div>
+      <div class="col-4">
+        <a href="./ARjs/FirstARjs/dist/assets/files/pattern-quan2.png">
+          <img src="./ARjs/FirstARjs/dist/assets/files/pattern-quan2.png">
+        </a>
+      </div>
+      <div class="col-4 qrcode">
+        <div class="qr-code" data-url='./ARjs/FirstARjs/dist/index.html'></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $( ".qr-code" ).each(function( index ) {
+      console.log( index + ": " + $( this ).text() );
+      $(this).qrcode($(this).data('url'));
+    });
+  });
+</script>
+</html>

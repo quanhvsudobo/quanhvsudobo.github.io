@@ -36,7 +36,9 @@
     <a-entity camera></a-entity>
   </a-scene>
   <script type="text/javascript">
-    document.querySelector('video').defaultPlaybackRate = 0.1;
-    document.querySelector('video').play();
+    (function() {
+       document.querySelector('video').defaultPlaybackRate = 0.1;
+       document.querySelector('video').play();
+    })();
   </script>
 </body>

@@ -12,14 +12,14 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-  <a-scene>
+  <a-scene embedded arjs='sourceType: webcam;'>
    <!--  <a-assets>
       <img id="gif1" src="assets/files/banh-sinh-nhat.gif">
     </a-assets> -->
     <!-- handle marker with your own pattern -->
     <a-marker type='pattern' url='assets/files/banh-sinh-nhat.patt'>
 
-      <video id="penguin-sledding"  loop="true" src="assets/files/banh-sinh-nhat.mp4"></video>
+      <video id="penguin-sledding" loop="true" src="assets/files/banh-sinh-nhat.mp4"></video>
       <!-- IMAGE -->
 
       <a-entity scale="1 1 1" rotation="-90 0 0" onclick="alert('OH YEAHHH!')" >
@@ -33,7 +33,7 @@
     </a-marker>
 
     <!-- add a simple camera -->
-    <!-- <a-entity camera></a-entity> -->
+    <a-entity camera></a-entity>
   </a-scene>
   <script type="text/javascript">
     document.querySelector('video').defaultPlaybackRate = 0.1;

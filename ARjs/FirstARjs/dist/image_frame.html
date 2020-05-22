@@ -19,7 +19,7 @@
        AFRAME.registerComponent('prevours-image-on-click', {
            init() {
               let el = this.el;
-              el.addEventListener('click', function() {
+              el.addEventListener('mouseenter', function() {
                 if(auto_play_id) clearInterval(auto_play_id);
                 var imageEl = document.querySelector('#image');
                 current_img = current_img > 1 ? current_img -= 1 : 26;
@@ -31,7 +31,7 @@
        AFRAME.registerComponent('change-image-on-click', {
            init() {
               let el = this.el;
-              el.addEventListener('click', function() {
+              el.addEventListener('mouseenter', function() {
                 if(auto_play_id) return;
                 randomImage();
                 auto_play_id = setInterval(function(){ 
@@ -44,7 +44,7 @@
        AFRAME.registerComponent('next-image-on-click', {
            init() {
               let el = this.el;
-              el.addEventListener('click', function() {
+              el.addEventListener('mouseenter', function() {
                 if(auto_play_id) clearInterval(auto_play_id);
                 var imageEl = document.querySelector('#image');
                 current_img = current_img < 26 ? current_img += 1 : 1;
@@ -102,7 +102,7 @@
   
   <script type="text/javascript">
         // var planeEl = document.querySelector('#plane');
-        // cameraEl.addEventListener('click', function () {
+        // cameraEl.addEventListener('mouseenter', function () {
         //   var imageEl = document.querySelector('#image');
         //   imageEl.setAttribute('src', 'assets/files/banh-sinh-nhat.png');
         // });

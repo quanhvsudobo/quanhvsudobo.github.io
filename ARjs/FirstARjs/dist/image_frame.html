@@ -1,0 +1,110 @@
+<head>
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+
+<script type="text/javascript">
+    (function() {
+      var current_img = 1;
+      var auto_play_id = null;
+       // document.querySelector('video').defaultPlaybackRate = 0.1;
+       // document.querySelector('video').play();
+       AFRAME.registerComponent('prevours-image-on-click', {
+           init() {
+              let el = this.el;
+              el.addEventListener('click', function() {
+                if(auto_play_id) clearInterval(auto_play_id);
+                var imageEl = document.querySelector('#image');
+                current_img = current_img > 1 ? current_img -= 1 : 26;
+                imageEl.setAttribute('src', 'assets/files/aovua/'+ current_img +'.jpg');
+              });
+           }
+       });
+
+       AFRAME.registerComponent('change-image-on-click', {
+           init() {
+              let el = this.el;
+              el.addEventListener('click', function() {
+                if(auto_play_id) return;
+                randomImage();
+                auto_play_id = setInterval(function(){ 
+                  randomImage();
+                }, 3000);
+              });
+           }
+       });
+
+       AFRAME.registerComponent('next-image-on-click', {
+           init() {
+              let el = this.el;
+              el.addEventListener('click', function() {
+                if(auto_play_id) clearInterval(auto_play_id);
+                var imageEl = document.querySelector('#image');
+                current_img = current_img < 26 ? current_img += 1 : 1;
+                imageEl.setAttribute('src', 'assets/files/aovua/'+ current_img +'.jpg');
+              });
+           }
+       });
+    })();
+
+    var randomImage = function() {
+      var imageEl = document.querySelector('#image');
+      current_img = Math.floor(Math.random() * 26) + 1;;
+      imageEl.setAttribute('src', 'assets/files/aovua/'+ current_img +'.jpg');
+    };
+
+    var test = function() {
+      // var imageEl = document.querySelector('#image');
+      // imageEl.setAttribute('src', 'assets/files/banh-sinh-nhat.png');
+    }
+  </script>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='sourceType: webcam;' cursor="rayOrigin: mouse">
+   <!--  <a-assets>
+      <img id="gif1" src="assets/files/banh-sinh-nhat.gif">
+    </a-assets> -->
+    <!-- handle marker with your own pattern -->
+    <a-marker type='pattern' url='assets/files/aovua.patt'>
+
+      <!-- IMAGE -->
+
+      <a-entity scale="1 1 1" rotation="-90 0 0" onclick="test();" >
+          <a-plane position='0 0.1 1' scale='1.1 1.1 1.1' src="assets/files/birthday_image_frame.png">
+            <a-image position='0 0 0.1' width="1" height="1" scale='0.7 0.7 0.7' src="assets/files/aovua/1.jpg" id="image"></a-image>
+          </a-plane>
+          <a-plane prevours-image-on-click with='3' height='1' position='-0.3 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
+            <a-text value="<< Prev!" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+          </a-plane>
+
+          <a-plane change-image-on-click with='3' height='1' position='0 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
+            <a-text value="Auto Play!" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+          </a-plane>
+
+          <a-plane next-image-on-click with='3' height='1' position='0.3 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
+            <a-text value="Next >>" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+          </a-plane>
+
+      </a-entity>
+      <!-- <a-sky color="#ddd"></a-sky> -->
+      
+    </a-marker>
+
+    <!-- add a simple camera -->
+    <a-entity camera></a-entity>
+  </a-scene>
+  
+  <script type="text/javascript">
+        // var planeEl = document.querySelector('#plane');
+        // cameraEl.addEventListener('click', function () {
+        //   var imageEl = document.querySelector('#image');
+        //   imageEl.setAttribute('src', 'assets/files/banh-sinh-nhat.png');
+        // });
+  </script>
+</body>

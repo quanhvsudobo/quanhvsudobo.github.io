@@ -7,7 +7,7 @@
     crossorigin="anonymous"></script>
 
 
-  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+  <!-- <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> -->
 </head>
 
 <script type="text/javascript">
@@ -71,33 +71,33 @@
       <img id="gif1" src="assets/files/banh-sinh-nhat.gif">
     </a-assets> -->
     <!-- handle marker with your own pattern -->
-    <a-marker type='pattern' url='assets/files/aovua.patt'>
+    <!-- <a-marker type='pattern' url='assets/files/aovua.patt'> -->
 
       <!-- IMAGE -->
 
       <a-entity scale="1 1 1" rotation="-90 0 0" onclick="test();" >
-          <a-plane position='0 0.1 1' scale='1.1 1.1 1.1' src="assets/files/birthday_image_frame.png">
-            <a-image position='0 0 0.1' width="1" height="1" scale='0.7 0.7 0.7' src="assets/files/aovua/1.jpg" id="image"></a-image>
+          <a-plane position='0 0.1 1' scale='1.1 1.1 1.1' width="1.25" height="1.5" src="assets/files/birthday_image_frame.png">
+            <a-image position='0 0 0.1' width="1" height="1.1" scale='0.8 0.8 0.8' src="assets/files/aovua/1.jpg" id="image"></a-image>
           </a-plane>
           <a-plane prevours-image-on-click with='3' height='1' position='-0.3 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
-            <a-text value="<< Prev!" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+            <a-image position='0.08 0 0.1' rotation='0 180 0' with='1' height='.7' scale='0.9 0.9 0.9' src="assets/files/next.png"  ></a-image>
           </a-plane>
 
-          <a-plane change-image-on-click with='3' height='1' position='0 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
-            <a-text value="Auto Play!" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+          <a-plane change-image-on-click with='1' height='1' position='0 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
+            <a-image position='0 0 0.1' with='1' height='.7' scale='0.9 0.9 0.9' src="assets/files/play_button.png"  ></a-image>
           </a-plane>
 
-          <a-plane next-image-on-click with='3' height='1' position='0.3 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
-            <a-text value="Next >>" position='0 0 0' size="2" width='3' align='center' color=""></a-text>
+          <a-plane next-image-on-click with='1' height='1' position='0.3 -0.25 1.2' scale='0.1 0.1 0.1' material='color: #000; opacity: 0.8;' id='plane'>
+            <a-image position='-0.08 0 0.1' with='1' height='.7' scale='0.9 0.9 0.9' src="assets/files/next.png" ></a-image>
           </a-plane>
 
       </a-entity>
       <!-- <a-sky color="#ddd"></a-sky> -->
       
-    </a-marker>
+    <!-- </a-marker> -->
 
     <!-- add a simple camera -->
-    <a-entity camera></a-entity>
+    <!-- <a-entity camera></a-entity> -->
   </a-scene>
   
   <script type="text/javascript">
